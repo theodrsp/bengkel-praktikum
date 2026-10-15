@@ -1,0 +1,25 @@
+{
+  "name": "bengkel-praktikum-com",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "apps/*"
+  ],
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "concurrently -n \"API,WEB\" -c \"blue,green\" \"npm run dev -w apps/api\" \"npm run dev -w apps/web\"",
+    "build": "npm run build --workspaces",
+    "test": "npm run test -w apps/api",
+    "lint": "npm run lint -w apps/web",
+    "format": "prettier --write \"apps/**/*.{ts,tsx,js,json,md}\"",
+    "format:check": "prettier --check \"apps/**/*.{ts,tsx,js,json,md}\""
+  },
+  "keywords": [],
+  "type": "commonjs",
+  "devDependencies": {
+    "concurrently": "^10.0.6",
+    "prettier": "^3.9.10",
+    "typescript": "^7.0.2"
+  }
+}
