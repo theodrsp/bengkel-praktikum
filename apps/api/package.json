@@ -8,12 +8,15 @@
   "dependencies": {
     "cors": "^2.8.6",
     "dotenv": "^18.0.8",
-    "express": "^5.3.0"
+    "express": "^5.3.0",
+    "pg": "^8.23.1"
   },
   "devDependencies": {
     "@types/cors": "^2.8.19",
     "@types/express": "^5.0.6",
     "@types/node": "^26.6.5",
+    "@types/pg": "^8.23.1",
+    "node-pg-migrate": "^9.0.0",
     "tsx": "^4.23.15",
     "typescript": "^7.0.2",
     "vitest": "^5.0.5"
@@ -22,6 +25,9 @@
     "dev": "tsx watch src/server.ts",
     "build": "tsc",
     "start": "node dist/server.js",
-    "test": "vitest run src"
+    "test": "vitest run src",
+    "migrate:create": "node-pg-migrate --migrations-dir src/db/migrations create",
+    "migrate:up": "node-pg-migrate --migrations-dir src/db/migrations up",
+    "migrate:down": "node-pg-migrate --migrations-dir src/db/migrations down"
   }
 }
