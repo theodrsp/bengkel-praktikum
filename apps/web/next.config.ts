@@ -13,8 +13,17 @@ const nextConfig: NextConfig = {
     },
   },
   // Meneruskan permintaan /api/* ke backend Express
-  async rewrites() {
-    const apiBaseUrl = process.env.API_BASE_URL || 'http://localhost:5000';
+    async rewrites() {
+    let apiBaseUrl = process.env.API_BASE_URL || 'http://localhost:5000';
+
+    // Otomatis tambahkan https:// jika lupa ditulis di Vercel
+    if (!apiBaseUrl.startsWith('http://') && !apiBaseUrl.startsWith('https://')) {
+      apiBaseUrl = `https://${apiBaseUrl}`;
+    }
+
+    // Hapus trailing slash jika ada (misal https://api.vercel.app/ -> https://api.vercel.app)
+    apiBaseUrl = apiBaseUrl.replace(/\/+$/, '');
+
     return [
       {
         source: '/api/:path*',
