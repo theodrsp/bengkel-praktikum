@@ -9,11 +9,7 @@ export const metadata: Metadata = {
   description: 'E-commerce suku cadang dan bengkel praktikum',
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="id" className="h-full">
       <body className="flex min-h-full flex-col bg-surface text-ink antialiased">

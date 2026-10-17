@@ -18,7 +18,7 @@ export default function HomePage() {
           >
             Beli Sekarang
           </button>
-          
+
           <button
             type="button"
             className="rounded-md bg-primary px-4 py-2 text-sm font-semibold text-white shadow hover:opacity-90 transition-opacity"
